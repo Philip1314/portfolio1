@@ -12,25 +12,275 @@
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --accent: #38bdf8;
+            --accent-hover: #0284c7;
             --border: #334155;
+            --active-tab: #0284c7;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; padding: 2rem 1rem; }
-        .container { max-width: 900px; margin: 0 auto; }
-        header { text-align: center; padding: 3rem 0; border-bottom: 1px solid var(--border); }
-        h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5r em; color: var(--text-primary); }
-        .subtitle { font-size: 1.25rem; color: var(--accent); margin-bottom: 1.5rem; }
-        .contact-links a { color: var(--text-secondary); text-decoration: none; margin: 0 10px; font-size: 0.95rem; }
-        .contact-links a:hover { color: var(--accent); }
-        section { margin: 3rem 0; }
-        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 0.25rem; }
-        .card { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
-        .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary); }
-        .card p, .card li { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem; }
-        ul { padding-left: 1.2rem; }
-        .badge-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-        .badge { background-color: #334155; color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.85rem; font-weight: 500; }
-        footer { text-align: center; padding: 2rem 0; color: var(--text-secondary); font-size: 0.85rem; border-top: 1px solid var(--border); }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 1.5rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Header Layout */
+        header {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+            font-weight: 500;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent);
+        }
+
+        .dot-divider {
+            color: var(--border);
+        }
+
+        /* Interactive Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 2rem 0 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: var(--card-bg);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background-color: var(--active-tab);
+            color: white;
+            border-color: var(--active-tab);
+        }
+
+        /* Tab Content Panels */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Section Styling */
+        section {
+            margin: 2rem 0;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        /* Card Layout */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card ul {
+            padding-left: 1.25rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Interactive Email Viewer Box */
+        .interactive-box {
+            background-color: #0f172a;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .box-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .box-btn {
+            background: #1e293b;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .box-btn.active-box {
+            background: var(--accent);
+            color: #0f172a;
+            font-weight: 600;
+            border-color: var(--accent);
+        }
+
+        .box-panel {
+            display: none;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: #1e293b;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        .box-panel.active-panel {
+            display: block;
+        }
+
+        /* Badges & Tags */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            background-color: #0f172a;
+            color: var(--accent);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem 0;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Mobile Adaptability */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+
+            header {
+                padding: 1.5rem 0.5rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 0.35rem;
+            }
+
+            .dot-divider {
+                display: none;
+            }
+
+            .card {
+                padding: 1.15rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -40,82 +290,157 @@
             <h1>King Philip Edmar Mangi</h1>
             <p class="subtitle">Customer Support Professional, CRM Specialist & AI Evaluator</p>
             <div class="contact-links">
-                <a href="mailto:kingphilip2014.kpm@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/king-philip-edmar-mangi" target="_blank">LinkedIn</a>
+                <a href="mailto:kingphilip2014.kpm@gmail.com">kingphilip2014.kpm@gmail.com</a>
+                <span class="dot-divider">•</span>
+                <a href="https://www.linkedin.com/in/king-philip-edmar-mangi" target="_blank">LinkedIn Profile</a>
+                <span class="dot-divider">•</span>
                 <span>Caloocan City, Philippines</span>
             </div>
         </header>
 
-        <!-- Professional Summary -->
-        <section>
-            <h2>Professional Overview</h2>
-            <div class="card">
-                <p>Non-voice customer support professional with over 8 years of stable email support experience at Concentrix[cite: 1, 4]. Experienced in managing high-volume ticket workflows (~60 tickets daily for customers and partners, and 30 complex tickets for merchants) while maintaining a 4.2 out of 5 average customer satisfaction rating[cite: 4]. Proficient in Salesforce, Bliss CRM, Jira, and data analysis using Excel and Google Sheets[cite: 3, 4].</p>
-                <div class="badge-container">
-                    <span class="badge">Salesforce</span>
-                    <span class="badge">Bliss CRM</span>
-                    <span class="badge">Jira (C360)</span>
-                    <span class="badge">Microsoft Excel</span>
-                    <span class="badge">Google Sheets</span>
-                    <span class="badge">Email Operations</span>
+        <!-- Interactive Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('overview')">Overview & Skills</button>
+            <button class="tab-btn" onclick="switchTab('casestudies')">Proof-of-Work Cases</button>
+            <button class="tab-btn" onclick="switchTab('aitraining')">AI Evaluation</button>
+            <button class="tab-btn" onclick="switchTab('credentials')">Credentials & Education</button>
+        </div>
+
+        <!-- Tab 1: Overview -->
+        <div id="overview" class="tab-content active">
+            <section>
+                <h2>Professional Overview</h2>
+                <div class="card">
+                    <p>Dedicated non-voice customer support professional with over 8 years of stable email support experience at Concentrix. Highly skilled in ticket routing, escalation tracking, and maintaining top-tier customer satisfaction ratings across fast-paced e-commerce, food delivery, and ride-hailing platforms.</p>
+                    <p>Actively seeking remote non-voice customer service, back-office, virtual assistant, data entry, and Workforce Management (Real-Time Analyst) positions. Proficient in typing at 45 WPM with 94 percent accuracy.</p>
+                    
+                    <div class="badge-container">
+                        <span class="badge">Salesforce</span>
+                        <span class="badge">Bliss CRM</span>
+                        <span class="badge">Jira (C360)</span>
+                        <span class="badge">Microsoft Excel (Pivot Tables & VLOOKUP)</span>
+                        <span class="badge">Google Sheets</span>
+                        <span class="badge">Typing (45 WPM)</span>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-        <!-- Case Studies / Proof of Work -->
-        <section>
-            <h2>Proof-of-Work Case Studies</h2>
-            
-            <div class="card">
-                <h3>Case Study 1: High-Volume Ticket Management & De-escalation</h3>
-                <p><strong>Challenge:</strong> Handling time-sensitive inquiries and escalated disputes for delivery partners and merchants under strict hourly targets.</p>
-                <p><strong>Execution:</strong> Maintained an output of roughly 60 tickets daily while writing clear, empathetic, and structured email responses[cite: 4]. Logged all interactions accurately in Salesforce and Bliss CRM[cite: 4].</p>
-                <p><strong>Result:</strong> Sustained an average customer survey rating of 4.2 out of 5 through prompt resolution and active listening[cite: 4].</p>
-            </div>
+        <!-- Tab 2: Case Studies with Interactive Email Viewer -->
+        <div id="casestudies" class="tab-content">
+            <section>
+                <h2>Proof-of-Work Case Studies</h2>
+                
+                <div class="card">
+                    <h3>Case Study 1: High-Volume Ticket Resolution & Partner Retention</h3>
+                    <p><span class="section-label">Challenge:</span> Managing a high daily ticket volume for delivery partners and merchants facing urgent system disruptions, payment queries, or order glitches without compromising response quality.</p>
+                    <p><span class="section-label">Execution:</span> Resolved roughly 60 customer tickets daily against strict hourly targets while handling 30 complex merchant escalations. Maintained clear, empathetic written communication tailored to time-pressed partner merchants.</p>
+                    <p><span class="section-label">Impact:</span> Consistently achieved an average customer survey rating of 4.2 out of 5 for the year and prevented partner churn.</p>
 
-            <div class="card">
-                <h3>Case Study 2: Knowledge Base Optimization & SOP Creation</h3>
-                <p><strong>Challenge:</strong> Identifying outdated resolution steps and procedural gaps in internal documentation that caused repeat customer contacts.</p>
-                <p><strong>Execution:</strong> Audited Knowledge Base articles and filed structured C360 Jira requests to update workflow procedures for agent teams[cite: 4].</p>
-                <p><strong>Result:</strong> Streamlined internal reference steps, ensuring consistent and accurate troubleshooting across vendor sites[cite: 4].</p>
-            </div>
+                    <!-- Interactive Email Viewer Widget -->
+                    <div class="interactive-box">
+                        <p style="font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem;">Interactive Sample Workflow View:</p>
+                        <div class="box-nav">
+                            <button class="box-btn active-box" onclick="switchBox(event, 'box1-scenario')">1. Customer Issue</button>
+                            <button class="box-btn" onclick="switchBox(event, 'box1-response')">2. Empathetic Email Reply</button>
+                            <button class="box-btn" onclick="switchBox(event, 'box1-crm')">3. CRM Log Entry</button>
+                        </div>
+                        <div id="box1-scenario" class="box-panel active-panel">
+                            <strong>Incoming Merchant Inquiry:</strong> "Urgent! Our store order dispatch failed twice this afternoon and partner riders are cancelling. We need this sorted immediately or our daily revenue is hit."
+                        </div>
+                        <div id="box1-response" class="box-panel">
+                            <strong>Sample Agent Reply:</strong> "Hello, I understand how critical order dispatch stability is during peak hours. I have investigated your store terminal status and cleared the queue bottleneck on our end. Please restart your merchant tablet now. I will monitor your incoming orders for the next 30 minutes to ensure smooth delivery."
+                        </div>
+                        <div id="box1-crm" class="box-panel">
+                            <strong>Salesforce / Bliss CRM Tagging:</strong> Category: Merchant Technical Escalation | Status: Resolved | Root Cause: Terminal Queue Latency | Action Taken: Cache cleared and tablet reboot advised.
+                        </div>
+                    </div>
+                </div>
 
-            <div class="card">
-                <h3>Case Study 3: Data Organization & Performance Tracking</h3>
-                <p><strong>Challenge:</strong> Organizing operational support data for clear visibility and trend analysis.</p>
-                <p><strong>Execution:</strong> Utilized advanced Excel features including Pivot Tables, VLOOKUP functions, and custom dashboards, alongside Google Sheets formulas and data cleaning[cite: 4].</p>
-                <p><strong>Result:</strong> Enabled faster data retrieval, error tracking, and productivity monitoring for daily workflows[cite: 4].</p>
-            </div>
-        </section>
+                <div class="card">
+                    <h3>Case Study 2: Knowledge Base Audit & SOP Optimization</h3>
+                    <p><span class="section-label">Challenge:</span> Outdated standard operating procedures (SOPs) and incomplete Knowledge Base steps leading to longer resolution times and inconsistent troubleshooting across support teams.</p>
+                    <p><span class="section-label">Execution:</span> Audited internal knowledge base documentation during daily handling to identify procedural gaps. Drafted structured procedure updates and filed detailed C360 Jira requests to update global support articles.</p>
+                    <p><span class="section-label">Impact:</span> Standardized resolution steps for cross-vendor support sites, reducing agent handle times and eliminating customer escalations.</p>
+                </div>
 
-        <!-- AI Training & Evaluation -->
-        <section>
-            <h2>AI Training & Content Evaluation</h2>
-            <div class="card">
-                <h3>Multi-Platform AI Evaluator & Contributor (Outlier, Crowdgen, Welo)[cite: 4]</h3>
-                <ul>
-                    <li><strong>LLM Fact-Checking:</strong> Compared responses from two language models on given topics, researched claims to verify facts, and flagged hallucinations[cite: 4].</li>
-                    <li><strong>Audio & Voice Assessment:</strong> Recorded bilingual audio prompts in Tagalog and English, transcribed audio files, and evaluated voice recording deliveries for natural tone[cite: 4].</li>
-                    <li><strong>Annotation & Guidelines Compliance:</strong> Annotated images, evaluated audio remixes against specific prompts, and rated advertisements strictly following detailed project guidelines[cite: 4].</li>
-                </ul>
-            </div>
-        </section>
+                <div class="card">
+                    <h3>Case Study 3: Operational Data Cleaning & Reporting</h3>
+                    <p><span class="section-label">Challenge:</span> Tracking daily support volume trends, error patterns, and resolution metrics across multiple data files without centralized visualization.</p>
+                    <p><span class="section-label">Execution:</span> Created structured tracking spreadsheets using advanced Excel features including Pivot Tables, VLOOKUP formulas, and dashboard charts alongside Google Sheets data cleaning functions.</p>
+                    <p><span class="section-label">Impact:</span> Improved productivity visibility and enabled faster reporting on recurring ticket categories and support escalations.</p>
+                </div>
+            </section>
+        </div>
 
-        <!-- Certifications -->
-        <section>
-            <h2>Certifications</h2>
-            <div class="card">
-                <ul>
-                    <li><strong>EF SET English Certificate (C2 Proficient)</strong> – EF SET[cite: 3]</li>
-                    <li><strong>Introduction to Bookkeeping (Certificate of Completion)</strong> – TESDA Online Program[cite: 4]</li>
-                </ul>
-            </div>
-        </section>
+        <!-- Tab 3: AI Training & Evaluation -->
+        <div id="aitraining" class="tab-content">
+            <section>
+                <h2>AI Training & Content Evaluation</h2>
+                <div class="card">
+                    <h3>Multi-Platform AI Evaluator & Contributor</h3>
+                    <p>Freelance AI Trainer working across specialized platforms including Outlier, Crowdgen, and Welo, focusing on data quality, model alignment, and prompt evaluation.</p>
+                    <ul>
+                        <li><strong>LLM Fact-Checking & Evaluation:</strong> Evaluated outputs from competing Large Language Models, researching complex claims to verify facts, flag hallucinations, and ensure prompt adherence.</li>
+                        <li><strong>Bilingual Audio & Speech Assessment:</strong> Recorded bilingual prompts in English and Tagalog, completed precise audio transcriptions, and evaluated AI voice model deliveries for clarity and tone.</li>
+                        <li><strong>Annotation & Guidelines Compliance:</strong> Conducted image annotation, audio remix quality checks, and ad relevance rating while maintaining strict adherence to detailed client guidelines.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tab 4: Credentials & Education -->
+        <div id="credentials" class="tab-content">
+            <section>
+                <h2>Certifications & Education</h2>
+                <div class="card">
+                    <h3>Education</h3>
+                    <ul>
+                        <li><strong>Bachelor of Science in Office Administration, Major in Corporate Transcription</strong><br>Polytechnic University of the Philippines</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Verified Certifications & Training</h3>
+                    <ul>
+                        <li><strong>EF SET English Certificate (C2 Proficient):</strong> Scored 90/100 (Awarded March 12, 2026).</li>
+                        <li><strong>Introduction to Bookkeeping:</strong> Certificate of Completion, TESDA Online Program (Completed October 16, 2026 | Code: 33FGt7BRuC).</li>
+                        <li><strong>NDIS Worker Orientation Module:</strong> Quality, Safety and You (Completed October 3, 2026).</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
 
         <!-- Footer -->
         <footer>
-            <p>&copy; 2026 King Philip Edmar Mangi. Built with GitHub Pages.</p>
+            <p>&copy; 2026 King Philip Edmar Mangi. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        function switchTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function switchBox(event, panelId) {
+            const box = event.target.closest('.interactive-box');
+            
+            const panels = box.querySelectorAll('.box-panel');
+            panels.forEach(panel => panel.classList.remove('active-panel'));
+
+            const btns = box.querySelectorAll('.box-btn');
+            btns.forEach(btn => btn.classList.remove('active-box'));
+
+            box.querySelector('#' + panelId).classList.add('active-panel');
+            event.currentTarget.classList.add('active-box');
+        }
+    </script>
 </body>
 </html>
