@@ -3,443 +3,683 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King Philip Edmar Mangi | Email Support & CRM Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>King Philip Edmar Mangi | Remote CRM Specialist & Virtual Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #38bdf8;
-            --accent-hover: #0284c7;
-            --border: #334155;
-            --active-tab: #0284c7;
+            --bg: #0b0f19;
+            --surface: #151c2c;
+            --surface-hover: #1e293b;
+            --border: #2e3a52;
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.15);
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-green: #34d399;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            padding: 1.5rem 1rem;
+            padding-bottom: 3rem;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            width: 100%;
+            padding: 0 1.5rem;
         }
 
-        /* Header Layout */
-        header {
+        /* Top Banner Status */
+        .status-bar {
+            background: linear-gradient(90deg, #0284c7, #0d9488);
+            color: white;
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2.5rem;
+            padding: 4rem 0 3rem 0;
             border-bottom: 1px solid var(--border);
         }
 
-        h1 {
-            font-size: 2.2rem;
+        .hero-avatar-container {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .hero-avatar {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 30px var(--primary-glow);
+        }
+
+        .badge-available {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background-color: var(--accent-green);
+            color: #064e3b;
+            font-size: 0.75rem;
             font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            border: 2px solid var(--bg);
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 0.5rem;
-            color: var(--text-primary);
             letter-spacing: -0.02em;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--accent);
-            margin-bottom: 1.25rem;
-            font-weight: 500;
+        .hero-text .title-tag {
+            font-size: 1.15rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
-        .contact-links {
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            gap: 1rem;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            font-size: 0.95rem;
         }
 
-        .contact-links a {
-            color: var(--text-secondary);
+        .btn-primary {
+            background-color: var(--primary);
+            color: #0f172a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
-        .contact-links a:hover {
-            color: var(--accent);
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--primary-glow);
         }
 
-        .dot-divider {
-            color: var(--border);
+        .btn-secondary {
+            background-color: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
-        /* Interactive Navigation Tabs */
-        .nav-tabs {
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Nav Pills */
+        .nav-pills {
             display: flex;
             justify-content: center;
-            gap: 0.5rem;
-            margin: 2rem 0 1.5rem 0;
+            gap: 0.75rem;
+            margin: 2.5rem 0 1.5rem 0;
             flex-wrap: wrap;
         }
 
-        .tab-btn {
-            background-color: var(--card-bg);
-            color: var(--text-secondary);
+        .pill-btn {
+            background: var(--surface);
+            color: var(--text-muted);
             border: 1px solid var(--border);
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
+            padding: 0.6rem 1.25rem;
+            border-radius: 30px;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        .tab-btn:hover {
-            border-color: var(--accent);
-            color: var(--text-primary);
+        .pill-btn:hover {
+            border-color: var(--primary);
+            color: var(--text);
         }
 
-        .tab-btn.active {
-            background-color: var(--active-tab);
-            color: white;
-            border-color: var(--active-tab);
+        .pill-btn.active {
+            background: var(--primary);
+            color: #0f172a;
+            border-color: var(--primary);
+            font-weight: 700;
         }
 
-        /* Tab Content Panels */
-        .tab-content {
+        .tab-panel {
             display: none;
         }
 
-        .tab-content.active {
+        .tab-panel.active-panel {
             display: block;
         }
 
-        /* Section Styling */
-        section {
-            margin: 2rem 0;
+        /* Section Headings */
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
-        h2 {
-            font-size: 1.4rem;
-            margin-bottom: 1.25rem;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-            padding-bottom: 0.25rem;
-            color: var(--text-primary);
-        }
-
-        /* Card Layout */
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .card ul {
-            padding-left: 1.25rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .card li {
+        .section-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .section-label {
-            color: var(--accent);
-            font-weight: 600;
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        /* Interactive Email Viewer Box */
-        .interactive-box {
-            background-color: #0f172a;
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Service Cards */
+        .card {
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem;
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.25s ease;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .card ul li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Tech Badges */
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             margin-top: 1rem;
         }
 
-        .box-nav {
+        .badge-tag {
+            background: var(--bg);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Interactive Work Viewer */
+        .interactive-viewer {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        .viewer-tabs {
             display: flex;
             gap: 0.5rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
         }
 
-        .box-btn {
-            background: #1e293b;
-            color: var(--text-secondary);
+        .v-btn {
+            background: var(--surface);
+            color: var(--text-muted);
             border: 1px solid var(--border);
             padding: 0.35rem 0.75rem;
             border-radius: 4px;
             font-size: 0.8rem;
+            font-weight: 600;
             cursor: pointer;
         }
 
-        .box-btn.active-box {
-            background: var(--accent);
+        .v-btn.v-active {
+            background: var(--primary);
             color: #0f172a;
-            font-weight: 600;
-            border-color: var(--accent);
+            border-color: var(--primary);
         }
 
-        .box-panel {
+        .v-panel {
             display: none;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            background: #1e293b;
+            background: var(--surface);
             padding: 1rem;
             border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            white-space: pre-line;
         }
 
-        .box-panel.active-panel {
+        .v-panel.v-panel-active {
             display: block;
         }
 
-        /* Badges & Tags */
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
+        /* Call To Action Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid var(--primary);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
         }
 
-        .badge {
-            background-color: #0f172a;
-            color: var(--accent);
-            border: 1px solid var(--border);
-            padding: 0.35rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        .cta-banner h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 1.75rem auto;
+            font-size: 1.05rem;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2rem 0 1rem 0;
-            color: var(--text-secondary);
+            margin-top: 4rem;
+            color: var(--text-muted);
             font-size: 0.85rem;
             border-top: 1px solid var(--border);
+            padding-top: 2rem;
         }
 
-        /* Mobile Adaptability */
-        @media (max-width: 600px) {
-            body {
-                padding: 1rem 0.75rem;
-            }
-
-            header {
-                padding: 1.5rem 0.5rem;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .contact-links {
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .hero {
                 flex-direction: column;
-                gap: 0.35rem;
+                text-align: center;
+                padding: 2.5rem 0;
             }
 
-            .dot-divider {
-                display: none;
+            .hero-text h1 {
+                font-size: 1.85rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
             }
 
             .card {
-                padding: 1.15rem;
-            }
-
-            h2 {
-                font-size: 1.25rem;
+                padding: 1.25rem;
             }
         }
     </style>
 </head>
 <body>
+
+    <!-- Top Announcement Bar -->
+    <div class="status-bar">
+        ⚡ OPEN FOR FREELANCE & FULL-TIME REMOTE OPPORTUNITIES
+    </div>
+
     <div class="container">
-        <!-- Header -->
-        <header>
-            <h1>King Philip Edmar Mangi</h1>
-            <p class="subtitle">Customer Support Professional, CRM Specialist & AI Evaluator</p>
-            <div class="contact-links">
-                <a href="mailto:kingphilip2014.kpm@gmail.com">kingphilip2014.kpm@gmail.com</a>
-                <span class="dot-divider">•</span>
-                <a href="https://www.linkedin.com/in/king-philip-edmar-mangi" target="_blank">LinkedIn Profile</a>
-                <span class="dot-divider">•</span>
-                <span>Caloocan City, Philippines</span>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-avatar-container">
+                <img src="profile.jpg" alt="King Philip Edmar Mangi" class="hero-avatar" onerror="this.src='https://via.placeholder.com/170/151c2c/38bdf8?text=Philip+Mangi'">
+                <span class="badge-available">AVAILABLE</span>
+            </div>
+            <div class="hero-text">
+                <h1>King Philip Edmar Mangi</h1>
+                <div class="title-tag">CRM Operations Specialist | Executive Support | AI Evaluator</div>
+                <p>Helping remote founders, fast-scaling startups, and operational teams streamline customer communication, optimize CRM workflows, and clean complex operational data.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:kingphilip2014.kpm@gmail.com" class="btn-primary">Hire Me Direct</a>
+                    <a href="https://www.linkedin.com/in/king-philip-edmar-mangi" target="_blank" class="btn-secondary">LinkedIn Profile</a>
+                </div>
             </div>
         </header>
 
-        <!-- Interactive Navigation Tabs -->
-        <div class="nav-tabs">
-            <button class="tab-btn active" onclick="switchTab('overview')">Overview & Skills</button>
-            <button class="tab-btn" onclick="switchTab('casestudies')">Proof-of-Work Cases</button>
-            <button class="tab-btn" onclick="switchTab('aitraining')">AI Evaluation</button>
-            <button class="tab-btn" onclick="switchTab('credentials')">Credentials & Education</button>
+        <!-- Navigation Pills -->
+        <div class="nav-pills">
+            <button class="pill-btn active" onclick="switchTab(event, 'services')">Services & Solutions</button>
+            <button class="pill-btn" onclick="switchTab(event, 'work')">Email Case Studies</button>
+            <button class="pill-btn" onclick="switchTab(event, 'kb')">Process & KB Updates</button>
+            <button class="pill-btn" onclick="switchTab(event, 'ai')">AI & Data Labelling</button>
+            <button class="pill-btn" onclick="switchTab(event, 'credentials')">Verified Credentials</button>
         </div>
 
-        <!-- Tab 1: Overview -->
-        <div id="overview" class="tab-content active">
-            <section>
-                <h2>Professional Overview</h2>
-                <div class="card">
-                    <p>Dedicated non-voice customer support professional with over 8 years of stable email support experience at Concentrix. Highly skilled in ticket routing, escalation tracking, and maintaining top-tier customer satisfaction ratings across fast-paced e-commerce, food delivery, and ride-hailing platforms.</p>
-                    <p>Actively seeking remote non-voice customer service, back-office, virtual assistant, data entry, and Workforce Management (Real-Time Analyst) positions. Proficient in typing at 45 WPM with 94 percent accuracy.</p>
-                    
-                    <div class="badge-container">
-                        <span class="badge">Salesforce</span>
-                        <span class="badge">Bliss CRM</span>
-                        <span class="badge">Jira (C360)</span>
-                        <span class="badge">Microsoft Excel (Pivot Tables & VLOOKUP)</span>
-                        <span class="badge">Google Sheets</span>
-                        <span class="badge">Typing (45 WPM)</span>
-                    </div>
-                </div>
-            </section>
-        </div>
+        <!-- Tab 1: Services Offered (Agency Style) -->
+        <div id="services" class="tab-panel active-panel">
+            <div class="section-header">
+                <h2>Virtual Assistant & Support Services</h2>
+                <p>High-value operational solutions designed to save business owners time and eliminate customer friction.</p>
+            </div>
 
-        <!-- Tab 2: Case Studies with Interactive Email Viewer -->
-        <div id="casestudies" class="tab-content">
-            <section>
-                <h2>Proof-of-Work Case Studies</h2>
-                
+            <div class="grid-3">
                 <div class="card">
-                    <h3>Case Study 1: High-Volume Ticket Resolution & Partner Retention</h3>
-                    <p><span class="section-label">Challenge:</span> Managing a high daily ticket volume for delivery partners and merchants facing urgent system disruptions, payment queries, or order glitches without compromising response quality.</p>
-                    <p><span class="section-label">Execution:</span> Resolved roughly 60 customer tickets daily against strict hourly targets while handling 30 complex merchant escalations. Maintained clear, empathetic written communication tailored to time-pressed partner merchants.</p>
-                    <p><span class="section-label">Impact:</span> Consistently achieved an average customer survey rating of 4.2 out of 5 for the year and prevented partner churn.</p>
-
-                    <!-- Interactive Email Viewer Widget -->
-                    <div class="interactive-box">
-                        <p style="font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem;">Interactive Sample Workflow View:</p>
-                        <div class="box-nav">
-                            <button class="box-btn active-box" onclick="switchBox(event, 'box1-scenario')">1. Customer Issue</button>
-                            <button class="box-btn" onclick="switchBox(event, 'box1-response')">2. Empathetic Email Reply</button>
-                            <button class="box-btn" onclick="switchBox(event, 'box1-crm')">3. CRM Log Entry</button>
-                        </div>
-                        <div id="box1-scenario" class="box-panel active-panel">
-                            <strong>Incoming Merchant Inquiry:</strong> "Urgent! Our store order dispatch failed twice this afternoon and partner riders are cancelling. We need this sorted immediately or our daily revenue is hit."
-                        </div>
-                        <div id="box1-response" class="box-panel">
-                            <strong>Sample Agent Reply:</strong> "Hello, I understand how critical order dispatch stability is during peak hours. I have investigated your store terminal status and cleared the queue bottleneck on our end. Please restart your merchant tablet now. I will monitor your incoming orders for the next 30 minutes to ensure smooth delivery."
-                        </div>
-                        <div id="box1-crm" class="box-panel">
-                            <strong>Salesforce / Bliss CRM Tagging:</strong> Category: Merchant Technical Escalation | Status: Resolved | Root Cause: Terminal Queue Latency | Action Taken: Cache cleared and tablet reboot advised.
-                        </div>
+                    <div class="card-icon">✉️</div>
+                    <h3>CRM & Email Operations</h3>
+                    <p>Complete non-voice customer support and ticket management for e-commerce and SaaS brands.</p>
+                    <ul>
+                        <li>Salesforce & Bliss CRM logging</li>
+                        <li>Escalation & de-escalation workflow</li>
+                        <li>High-friction partner retention</li>
+                        <li>Customer survey optimization</li>
+                    </ul>
+                    <div class="badge-list">
+                        <span class="badge-tag">Salesforce</span>
+                        <span class="badge-tag">Bliss CRM</span>
                     </div>
                 </div>
 
                 <div class="card">
-                    <h3>Case Study 2: Knowledge Base Audit & SOP Optimization</h3>
-                    <p><span class="section-label">Challenge:</span> Outdated standard operating procedures (SOPs) and incomplete Knowledge Base steps leading to longer resolution times and inconsistent troubleshooting across support teams.</p>
-                    <p><span class="section-label">Execution:</span> Audited internal knowledge base documentation during daily handling to identify procedural gaps. Drafted structured procedure updates and filed detailed C360 Jira requests to update global support articles.</p>
-                    <p><span class="section-label">Impact:</span> Standardized resolution steps for cross-vendor support sites, reducing agent handle times and eliminating customer escalations.</p>
+                    <div class="card-icon">📊</div>
+                    <h3>Data Cleaning & Analytics</h3>
+                    <p>Transforming raw support logs into clear, actionable executive dashboards and reports.</p>
+                    <ul>
+                        <li>Advanced VLOOKUP & Pivot Tables</li>
+                        <li>Google Sheets automation formulas</li>
+                        <li>Operational metric tracking</li>
+                        <li>Data entry with 94% accuracy</li>
+                    </ul>
+                    <div class="badge-list">
+                        <span class="badge-tag">Excel</span>
+                        <span class="badge-tag">Google Sheets</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <h3>Case Study 3: Operational Data Cleaning & Reporting</h3>
-                    <p><span class="section-label">Challenge:</span> Tracking daily support volume trends, error patterns, and resolution metrics across multiple data files without centralized visualization.</p>
-                    <p><span class="section-label">Execution:</span> Created structured tracking spreadsheets using advanced Excel features including Pivot Tables, VLOOKUP formulas, and dashboard charts alongside Google Sheets data cleaning functions.</p>
-                    <p><span class="section-label">Impact:</span> Improved productivity visibility and enabled faster reporting on recurring ticket categories and support escalations.</p>
+                    <div class="card-icon">📚</div>
+                    <h3>Knowledge Management</h3>
+                    <p>Auditing internal procedures and building standardized operating documentation.</p>
+                    <ul>
+                        <li>SOP creation & gap audits</li>
+                        <li>Jira (C360) ticket updates</li>
+                        <li>Team knowledge base maintenance</li>
+                        <li>Process flow optimization</li>
+                    </ul>
+                    <div class="badge-list">
+                        <span class="badge-tag">Jira</span>
+                        <span class="badge-tag">SOP Writing</span>
+                    </div>
                 </div>
-            </section>
+            </div>
         </div>
 
-        <!-- Tab 3: AI Training & Evaluation -->
-        <div id="aitraining" class="tab-content">
-            <section>
-                <h2>AI Training & Content Evaluation</h2>
-                <div class="card">
-                    <h3>Multi-Platform AI Evaluator & Contributor</h3>
-                    <p>Freelance AI Trainer working across specialized platforms including Outlier, Crowdgen, and Welo, focusing on data quality, model alignment, and prompt evaluation.</p>
-                    <ul>
-                        <li><strong>LLM Fact-Checking & Evaluation:</strong> Evaluated outputs from competing Large Language Models, researching complex claims to verify facts, flag hallucinations, and ensure prompt adherence.</li>
-                        <li><strong>Bilingual Audio & Speech Assessment:</strong> Recorded bilingual prompts in English and Tagalog, completed precise audio transcriptions, and evaluated AI voice model deliveries for clarity and tone.</li>
-                        <li><strong>Annotation & Guidelines Compliance:</strong> Conducted image annotation, audio remix quality checks, and ad relevance rating while maintaining strict adherence to detailed client guidelines.</li>
-                    </ul>
+        <!-- Tab 2: Email Case Studies (3 Separate Interactive Scenarios) -->
+        <div id="work" class="tab-panel">
+            <div class="section-header">
+                <h2>Customer Support Email Case Studies</h2>
+                <p>Interactive samples demonstrating real email response templates, escalation handling, and merchant empowerment.</p>
+            </div>
+
+            <!-- Case Study 1 -->
+            <div class="card">
+                <h3>Case Study 1: POS Integration Technical Escalation</h3>
+                <p><strong>Scenario:</strong> A merchant reports that their point-of-sale system is failing to sync menu updates and incoming orders, requiring escalation to the specialized technical team.</p>
+                <div class="interactive-viewer">
+                    <p style="font-size:0.8rem; color:var(--primary); font-weight:700; margin-bottom:0.5rem;">VIEW EMAIL WORKFLOW:</p>
+                    <div class="viewer-tabs">
+                        <button class="v-btn v-active" onclick="switchViewer(event, 'cs1-inquiry')">Merchant Inquiry</button>
+                        <button class="v-btn" onclick="switchViewer(event, 'cs1-reply')">Escalation Email</button>
+                        <button class="v-btn" onclick="switchViewer(event, 'cs1-crm')">CRM Case Log</button>
+                    </div>
+                    <div id="cs1-inquiry" class="v-panel v-panel-active">
+                        From: Merchant Support Team
+                        Subject: POS Sync Failure - Store ID #48291
+                        Message: Our POS integration stopped updating menu items this morning. Orders are failing to drop into our terminal. Please fix this immediately.
+                    </div>
+                    <div id="cs1-reply" class="v-panel">
+                        To: Specialized Technical Integration Team
+                        Subject: Escalation: POS Sync Failure for Store ID #48291
+                        Message: Hello Tier 2 Team, raising an urgent technical escalation for Store ID #48291. The merchant reports complete API sync failure with their current POS provider. Error logs indicate handshake timeout during menu polling. Kindly investigate backend webhook configurations and assist with manual re-authorization. Thank you!
+                    </div>
+                    <div id="cs1-crm" class="v-panel">
+                        Category: POS Integration Error | Status: Escalated to Tier 2 | Action: Ticket routed to Specialized Engineering Team with attached server error codes and store metadata.
+                    </div>
                 </div>
-            </section>
+            </div>
+
+            <!-- Case Study 2 -->
+            <div class="card">
+                <h3>Case Study 2: Non-POS Menu Customization & Client Empowerment</h3>
+                <p><strong>Scenario:</strong> A merchant needs menu size options and add-ons updated immediately for a non-POS integrated store setup. The agent handles the immediate request and provides future self-service steps.</p>
+                <div class="interactive-viewer">
+                    <p style="font-size:0.8rem; color:var(--primary); font-weight:700; margin-bottom:0.5rem;">VIEW EMAIL WORKFLOW:</p>
+                    <div class="viewer-tabs">
+                        <button class="v-btn v-active" onclick="switchViewer(event, 'cs2-inquiry')">Merchant Inquiry</button>
+                        <button class="v-btn" onclick="switchViewer(event, 'cs2-reply')">Agent Response</button>
+                        <button class="v-btn" onclick="switchViewer(event, 'cs2-crm')">CRM Case Log</button>
+                    </div>
+                    <div id="cs2-inquiry" class="v-panel v-panel-active">
+                        From: Store Owner
+                        Subject: Update Menu Sizes and Add-ons
+                        Message: Can you update our drink sizes (Small, Medium, Large) and add-on modifiers on our menu app? We don't use POS integration right now.
+                    </div>
+                    <div id="cs2-reply" class="v-panel">
+                        To: Store Owner
+                        Subject: Re: Update Menu Sizes and Add-ons
+                        Message: Hello! I have successfully updated your drink sizes and add-on modifiers on our backend tool as requested. Your menu app now reflects the new options. 
+                        
+                        For future urgent updates, you can easily modify these items directly on your end by logging into your Merchant Portal, navigating to the Menu Management tab, selecting Modifiers, and saving changes instantly. Let me know if you need any further assistance!
+                    </div>
+                    <div id="cs2-crm" class="v-panel">
+                        Category: Menu Customization (Non-POS) | Status: Resolved & Client Empowered | Action: Manual size and modifier updates applied; self-service portal guide provided.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="card">
+                <h3>Case Study 3: Disputing Inaccurate Order & Merchant Refund</h3>
+                <p><strong>Scenario:</strong> A merchant disputes a customer report claiming an incorrect item was delivered. After verification, support approves and provides a financial refund/reimbursement to the merchant.</p>
+                <div class="interactive-viewer">
+                    <p style="font-size:0.8rem; color:var(--primary); font-weight:700; margin-bottom:0.5rem;">VIEW EMAIL WORKFLOW:</p>
+                    <div class="viewer-tabs">
+                        <button class="v-btn v-active" onclick="switchViewer(event, 'cs3-inquiry')">Merchant Dispute</button>
+                        <button class="v-btn" onclick="switchViewer(event, 'cs3-reply')">Resolution Email</button>
+                        <button class="v-btn" onclick="switchViewer(event, 'cs3-crm')">CRM Case Log</button>
+                    </div>
+                    <div id="cs3-inquiry" class="v-panel v-panel-active">
+                        From: Merchant Manager
+                        Subject: Dispute Inaccurate Order Claim - Order #99382
+                        Message: The customer claimed they received the wrong meal item, but our kitchen log and CCTV confirm our staff packed the exact order correctly. Please review and reimburse us.
+                    </div>
+                    <div id="cs3-reply" class="v-panel">
+                        To: Merchant Manager
+                        Subject: Resolution: Order Dispute #99382 Reimbursement
+                        Message: Hello, thank you for providing your kitchen documentation for Order #99382. After reviewing our audit logs and your evidence, we have verified that the dispatch error originated from a delivery partner mix-up. We have successfully processed a full financial reimbursement of the disputed item amount directly to your merchant payout account, which will reflect in your next settlement cycle. We apologize for the inconvenience!
+                    </div>
+                    <div id="cs3-crm" class="v-panel">
+                        Category: Order Dispute / Payout Adjustment | Status: Resolved (Merchant Refunded) | Action: Verified kitchen logs, overturned customer error claim, and credited reimbursement to merchant account.
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Tab 4: Credentials & Education -->
-        <div id="credentials" class="tab-content">
-            <section>
-                <h2>Certifications & Education</h2>
+        <!-- Tab 3: Process & KB Updates -->
+        <div id="kb" class="tab-panel">
+            <div class="section-header">
+                <h2>Proactive Knowledge Base & SOP Redesign</h2>
+                <p>Improving operational workflows, eliminating friction points, and reducing unnecessary support escalations.</p>
+            </div>
+
+            <div class="card">
+                <h3>Optimization 1: Liquor Stores POS Integration Workflow Redesign</h3>
+                <p><strong>The Operational Gap:</strong> Previous SOP required agents to ask merchants for their POS provider name first before checking if the store was managed by an Account Manager. If an account had no Account Manager (platform employee managing the store), integration could not be offered regardless of the POS provider. This caused prolonged interactions and negative merchant experiences.</p>
+                <p><strong>The Solution & Action Taken:</strong> Updated the SOP and filed Jira requests to reorder the verification steps. Agents now verify Account Manager status as the mandatory first gatekeeper. If unmanaged, integration is declined immediately before requesting POS details, saving time and eliminating frustration.</p>
+            </div>
+
+            <div class="card">
+                <h3>Optimization 2: POS Delivery Configuration & Root Cause Routing</h3>
+                <p><strong>The Operational Gap:</strong> Merchants with POS integrations experiencing unaccepted orders while configured for "delivery by own staff" were previously routed into unnecessary Jira tickets. The root cause stemmed from incompatible POS provider configurations that failed to support self-staff delivery modes.</p>
+                <p><strong>The Solution & Action Taken:</strong> Updated internal KB documentation to instantly identify POS delivery incompatibilities. Instead of filing redundant Jira tickets, agents now inform merchants immediately and provide 2 clear alternatives: either switch to a compatible POS provider or update their delivery mode settings.</p>
+            </div>
+        </div>
+
+        <!-- Tab 4: AI & Data Labelling -->
+        <div id="ai" class="tab-panel">
+            <div class="section-header">
+                <h2>AI Model Training & Annotation</h2>
+                <p>Contributing high-quality human feedback for Large Language Models and computer vision systems.</p>
+            </div>
+
+            <div class="card">
+                <h3>Multi-Platform AI Evaluator (Outlier, Crowdgen, Welo)</h3>
+                <p>Active freelance contributor helping AI teams refine, evaluate, and align generative models.</p>
+                <ul>
+                    <li><strong>LLM Fact-Checking:</strong> Compared outputs from dual LLM models, verifying complex claims, checking sources, and flagging hallucinations.</li>
+                    <li><strong>Bilingual Audio Assessment:</strong> Recorded bilingual audio prompts in Tagalog and English, transcribed audio files, and evaluated AI voice model deliveries for natural tone.</li>
+                    <li><strong>Multimodal Annotation:</strong> Executed image annotation, audio remix prompt matching, and ad relevance rating following strict project guidelines.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 5: Verified Credentials -->
+        <div id="credentials" class="tab-panel">
+            <div class="section-header">
+                <h2>Education & Certifications</h2>
+                <p>Verified academic qualifications and modern skill certifications.</p>
+            </div>
+
+            <div class="grid-2">
                 <div class="card">
-                    <h3>Education</h3>
+                    <h3>Academic Qualification</h3>
+                    <p><strong>Bachelor of Science in Office Administration</strong><br>Major in Corporate Transcription</p>
+                    <p>Polytechnic University of the Philippines</p>
+                </div>
+
+                <div class="card">
+                    <h3>Verified Certificates</h3>
                     <ul>
-                        <li><strong>Bachelor of Science in Office Administration, Major in Corporate Transcription</strong><br>Polytechnic University of the Philippines</li>
+                        <li><strong>EF SET English Certificate:</strong> C2 Proficient (Score: 90/100, March 2026)</li>
+                        <li><strong>Introduction to Bookkeeping:</strong> TESDA Online Program (Completed October 2026 | Code: 33FGt7BRuC)</li>
+                        <li><strong>NDIS Worker Orientation Module:</strong> Quality, Safety and You (Completed October 2026)</li>
                     </ul>
                 </div>
-                <div class="card">
-                    <h3>Verified Certifications & Training</h3>
-                    <ul>
-                        <li><strong>EF SET English Certificate (C2 Proficient):</strong> Scored 90/100 (Awarded March 12, 2026).</li>
-                        <li><strong>Introduction to Bookkeeping:</strong> Certificate of Completion, TESDA Online Program (Completed October 16, 2026 | Code: 33FGt7BRuC).</li>
-                        <li><strong>NDIS Worker Orientation Module:</strong> Quality, Safety and You (Completed October 3, 2026).</li>
-                    </ul>
-                </div>
-            </section>
+            </div>
+        </div>
+
+        <!-- Call to Action Banner -->
+        <div class="cta-banner">
+            <h2>Ready to Upgrade Your Operational Support?</h2>
+            <p>Whether you need dedicated CRM email support, data cleaning in Excel, or a reliable virtual assistant to keep your operations running smoothly, I am ready to help.</p>
+            <a href="mailto:kingphilip2014.kpm@gmail.com" class="btn-primary" style="font-size: 1.1rem; padding: 0.9rem 2rem;">Book a Call / Email Me Direct</a>
         </div>
 
         <!-- Footer -->
         <footer>
-            <p>&copy; 2026 King Philip Edmar Mangi. All rights reserved.</p>
+            <p>© 2026 King Philip Edmar Mangi. Built with GitHub Pages.</p>
         </footer>
+
     </div>
 
-    <!-- JavaScript for Interactivity -->
+    <!-- JavaScript for Dynamic Interactions -->
     <script>
-        function switchTab(tabId) {
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
-
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-
-        function switchBox(event, panelId) {
-            const box = event.target.closest('.interactive-box');
-            
-            const panels = box.querySelectorAll('.box-panel');
+        function switchTab(evt, tabName) {
+            const panels = document.querySelectorAll('.tab-panel');
             panels.forEach(panel => panel.classList.remove('active-panel'));
 
-            const btns = box.querySelectorAll('.box-btn');
-            btns.forEach(btn => btn.classList.remove('active-box'));
+            const buttons = document.querySelectorAll('.pill-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
 
-            box.querySelector('#' + panelId).classList.add('active-panel');
-            event.currentTarget.classList.add('active-box');
+            document.getElementById(tabName).classList.add('active-panel');
+            evt.currentTarget.classList.add('active');
+        }
+
+        function switchViewer(evt, panelId) {
+            const viewer = evt.target.closest('.interactive-viewer');
+            
+            const panels = viewer.querySelectorAll('.v-panel');
+            panels.forEach(p => p.classList.remove('v-panel-active'));
+
+            const btns = viewer.querySelectorAll('.v-btn');
+            btns.forEach(b => b.classList.remove('v-active'));
+
+            viewer.querySelector('#' + panelId).classList.add('v-panel-active');
+            evt.currentTarget.classList.add('v-active');
         }
     </script>
 </body>
