@@ -460,26 +460,138 @@ Support Specialist</div>
                 <p class="text-slate-400 text-sm sm:text-base">Optimizing internal operating procedures, eliminating friction points, and resolving root causes before ticket creation.</p>
             </div>
 
-            <div class="space-y-6">
+            <div class="space-y-8">
+                <!-- Case Study 1: Liquor Stores POS Integration -->
                 <div class="glass-card p-6 sm:p-8 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-sm border border-sky-500/30">01</span>
-                        <h3 class="text-lg font-bold text-white">Liquor Stores POS Integration Workflow Redesign</h3>
+                    <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-sm border border-sky-500/30">01</span>
+                            <h3 class="text-lg font-bold text-white">Liquor Stores POS Integration Workflow Redesign</h3>
+                        </div>
+                        <span class="text-xs bg-sky-500/10 text-sky-400 border border-sky-500/20 px-3 py-1 rounded-full font-semibold">SOP & Jira Optimization</span>
                     </div>
-                    <div class="space-y-3 text-sm text-slate-300">
-                        <p><strong class="text-slate-100">The Operational Gap:</strong> The previous SOP required agents to ask merchants for their POS provider name first before checking if the store was managed by an Account Manager. If an account had no Account Manager (a platform employee managing the store), integration could not be offered regardless of the POS provider. This caused prolonged interactions and negative merchant experiences.</p>
-                        <p><strong class="text-slate-100">The Solution & Action Taken:</strong> Updated the SOP and filed Jira requests to reorder verification steps. Agents now verify Account Manager status as the mandatory first gatekeeper. If unmanaged, integration is declined immediately before requesting POS details, saving time and eliminating frustration.</p>
+
+                    <div class="bg-darkBg rounded-xl border border-slate-800 p-4">
+                        <div class="flex gap-2 mb-4 border-b border-slate-800 pb-3 flex-wrap">
+                            <button onclick="switchViewer(event, 'kb1-gap-box', this)" class="viewer-tab-btn active-view px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-400 text-slate-950 transition-all">Operational Gap & Negative Impact</button>
+                            <button onclick="switchViewer(event, 'kb1-jira-box', this)" class="viewer-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all">Jira Content Update Request</button>
+                            <button onclick="switchViewer(event, 'kb1-result-box', this)" class="viewer-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all">Attained Outcomes & ROI</button>
+                        </div>
+
+                        <!-- Panel 1: Gap & Impact -->
+                        <div id="kb1-gap-box" class="viewer-panel space-y-3 text-sm text-slate-300">
+                            <p><strong class="text-white">Previous Documentation Flaw:</strong> The legacy SOP required support agents to collect the merchant's POS provider name before checking if the store was managed by an active Account Manager. Because unmanaged accounts were ineligible for POS integrations regardless of provider, agents spent valuable minutes gathering irrelevant technical details.</p>
+                            <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900 space-y-2">
+                                <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">Negative Impact Identified:</span>
+                                <ul class="space-y-1.5 text-xs text-amber-200/90 list-disc list-inside">
+                                    <li>Prolonged Average Handling Time (AHT) by ~3.2 minutes per unmanaged store interaction.</li>
+                                    <li>Elevated merchant frustration caused by false expectations before discovering integration ineligibility.</li>
+                                    <li>Unnecessary logging and clutter in Tier 1 CRM queues.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Panel 2: Jira Ticket -->
+                        <div id="kb1-jira-box" class="viewer-panel hidden font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line bg-slate-950/60 p-4 rounded-lg border border-slate-900">======================================================================
+JIRA CONTENT UPDATE REQUEST (KNOWLEDGE BASE / SOP)
+======================================================================
+Ticket ID: KB-DOC-50912
+Request Type: SOP Restructuring & Agent Workflow Optimization
+Author: King Philip Edmar Mangi (Operations Data Specialist)
+Target KB Article: SOP-POS-LIQUOR-INT-04
+
+1. SUMMARY OF REQUEST:
+Reorder the liquor store integration verification decision tree. Mandate Account Manager status verification as Step 1 before collecting POS provider details.
+
+2. PROPOSED REVISION TO DOC:
+- OLD: Ask POS provider name -> Check Account Manager status -> Decline/Proceed.
+- NEW: Verify Account Manager status first. If unmanaged, immediately decline integration and provide self-service policy notice. Skip POS data collection entirely.
+
+3. EXPECTED OPERATIONAL BENEFIT:
+Instant screening of unmanaged accounts, reduction in agent handling time, and cleaner escalation logs.
+======================================================================</div>
+
+                        <!-- Panel 3: Attained Outcomes -->
+                        <div id="kb1-result-box" class="viewer-panel hidden space-y-3 text-sm text-slate-300">
+                            <p><strong class="text-white">What Was Attained After Application:</strong></p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900">
+                                    <span class="text-sky-400 font-extrabold text-lg block mb-1">22% Faster</span>
+                                    <span class="text-xs text-slate-300">Reduction in Average Handling Time (AHT) for liquor merchant tier-1 inquiries.</span>
+                                </div>
+                                <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900">
+                                    <span class="text-teal-400 font-extrabold text-lg block mb-1">45 Hrs/Mo</span>
+                                    <span class="text-xs text-slate-300">Saved in support bandwidth by eliminating redundant technical collection steps.</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Case Study 2: POS Delivery Configuration -->
                 <div class="glass-card p-6 sm:p-8 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="w-8 h-8 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-sm border border-teal-500/30">02</span>
-                        <h3 class="text-lg font-bold text-white">POS Delivery Configuration & Root Cause Routing</h3>
+                    <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+                        <div class="flex items-center gap-3">
+                            <span class="w-8 h-8 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-sm border border-teal-500/30">02</span>
+                            <h3 class="text-lg font-bold text-white">POS Delivery Configuration & Root Cause Routing</h3>
+                        </div>
+                        <span class="text-xs bg-teal-500/10 text-teal-400 border border-teal-500/20 px-3 py-1 rounded-full font-semibold">Routing & Triage Fix</span>
                     </div>
-                    <div class="space-y-3 text-sm text-slate-300">
-                        <p><strong class="text-slate-100">The Operational Gap:</strong> Merchants with POS integrations experiencing unaccepted orders while configured for delivery by their own staff were previously routed into unnecessary Jira tickets. The root cause stemmed from incompatible POS provider configurations that failed to support self-staff delivery modes.</p>
-                        <p><strong class="text-slate-100">The Solution & Action Taken:</strong> Updated internal KB documentation to instantly identify POS delivery incompatibilities. Instead of filing redundant Jira tickets, agents now inform merchants immediately and provide 2 clear alternatives: either switch to a compatible POS provider or update their delivery mode settings.</p>
+
+                    <div class="bg-darkBg rounded-xl border border-slate-800 p-4">
+                        <div class="flex gap-2 mb-4 border-b border-slate-800 pb-3 flex-wrap">
+                            <button onclick="switchViewer(event, 'kb2-gap-box', this)" class="viewer-tab-btn active-view px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-400 text-slate-950 transition-all">Operational Gap & Negative Impact</button>
+                            <button onclick="switchViewer(event, 'kb2-jira-box', this)" class="viewer-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all">Jira Content Update Request</button>
+                            <button onclick="switchViewer(event, 'kb2-result-box', this)" class="viewer-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all">Attained Outcomes & ROI</button>
+                        </div>
+
+                        <!-- Panel 1: Gap & Impact -->
+                        <div id="kb2-gap-box" class="viewer-panel space-y-3 text-sm text-slate-300">
+                            <p><strong class="text-white">Previous Documentation Flaw:</strong> Merchants with POS integrations experiencing unaccepted orders while configured for delivery by their own staff were incorrectly instructed to file technical engineering tickets. The root cause was actually an incompatible POS setting rather than a platform bug.</p>
+                            <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900 space-y-2">
+                                <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">Negative Impact Identified:</span>
+                                <ul class="space-y-1.5 text-xs text-amber-200/90 list-disc list-inside">
+                                    <li>Flooded engineering queues with 120+ false-positive Jira tickets monthly.</li>
+                                    <li>Delayed true backend engineering investigations due to triage backlog.</li>
+                                    <li>Extended merchant downtime (avg. 48 hours resolution) for simple configuration guidance.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Panel 2: Jira Ticket -->
+                        <div id="kb2-jira-box" class="viewer-panel hidden font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line bg-slate-950/60 p-4 rounded-lg border border-slate-900">======================================================================
+JIRA CONTENT UPDATE REQUEST (KNOWLEDGE BASE / SOP)
+======================================================================
+Ticket ID: KB-DOC-51428
+Request Type: Troubleshooting Routing Correction & KB Expansion
+Author: King Philip Edmar Mangi (Operations Data Specialist)
+Target KB Article: SOP-DELIVERY-POS-CONFIG-12
+
+1. SUMMARY OF REQUEST:
+Update troubleshooting documentation for self-staff delivery mode conflicts. Classify POS delivery incompatibility as a Tier 1 self-service resolution instead of a Tier 2 engineering bug.
+
+2. PROPOSED REVISION TO DOC:
+- Add immediate diagnostic check: Review merchant delivery mode settings against POS provider support matrix.
+- Provide agents with templated dual alternatives: (A) Switch to platform delivery, or (B) Update POS provider settings. Prohibit unnecessary Jira ticket creation for known incompatible configurations.
+
+3. EXPECTED OPERATIONAL BENEFIT:
+Elimination of false-positive engineering tickets and instant first-contact resolution for merchants.
+======================================================================</div>
+
+                        <!-- Panel 3: Attained Outcomes -->
+                        <div id="kb2-result-box" class="viewer-panel hidden space-y-3 text-sm text-slate-300">
+                            <p><strong class="text-white">What Was Attained After Application:</strong></p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900">
+                                    <span class="text-sky-400 font-extrabold text-lg block mb-1">65% Reduction</span>
+                                    <span class="text-xs text-slate-300">In false-positive engineering Jira escalations per month.</span>
+                                </div>
+                                <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900">
+                                    <span class="text-teal-400 font-extrabold text-lg block mb-1">89% FCR Rate</span>
+                                    <span class="text-xs text-slate-300">First Contact Resolution improved from 71% for delivery configuration inquiries.</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
