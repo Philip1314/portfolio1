@@ -41,6 +41,13 @@
             border-color: rgba(56, 189, 248, 0.3);
             box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
         }
+        /* Mobile text wrapping and clean left alignment for code blocks */
+        .jira-box {
+            word-break: break-word;
+            overflow-wrap: anywhere;
+            text-align: left;
+            max-width: 100%;
+        }
     </style>
 </head>
 <body class="bg-darkBg text-slate-100 min-h-screen antialiased selection:bg-sky-500 selection:text-slate-950 pb-16">
@@ -116,7 +123,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="glass-card p-6 rounded-2xl transition duration-300">
                     <div class="text-3xl mb-4">✉️</div>
-                    <h3 class="text-lg font-bold text-white mb-2"><comment-tag id="1">Email Operations & CRM Management</comment-tag id="1" text="Updated title to align directly with your LinkedIn headline emphasizing Email Operations and specific CRM tools like Salesforce and Bliss." type="suggestion"></h3>
+                    <h3 class="text-lg font-bold text-white mb-2">Email Operations & CRM Management</h3>
                     <p class="text-slate-400 text-sm mb-4">Managing high-volume client/customer communications, email queue triage, ticket routing, and escalation management.</p>
                     <ul class="space-y-2 text-sm text-slate-300 mb-4">
                         <li class="flex items-center gap-2"><span class="text-sky-400 font-bold">✓</span> Email Inbox Zero & Ticket Triage</li>
@@ -131,7 +138,7 @@
 
                 <div class="glass-card p-6 rounded-2xl transition duration-300">
                     <div class="text-3xl mb-4">📊</div>
-                    <h3 class="text-lg font-bold text-white mb-2"><comment-tag id="2">Data Quality & Spreadsheet Reporting</comment-tag id="2" text="Aligned heading with your LinkedIn phrase 'Data Quality' and spreadsheet operations." type="suggestion"></h3>
+                    <h3 class="text-lg font-bold text-white mb-2">Data Quality & Spreadsheet Reporting</h3>
                     <p class="text-slate-400 text-sm mb-4">Cleaning, organizing, and auditing backend support logs to ensure pristine data quality and executive-ready reports.</p>
                     <ul class="space-y-2 text-sm text-slate-300 mb-4">
                         <li class="flex items-center gap-2"><span class="text-sky-400 font-bold">✓</span> Advanced Formulas (XLOOKUP, QUERY)</li>
@@ -146,7 +153,7 @@
 
                 <div class="glass-card p-6 rounded-2xl transition duration-300">
                     <div class="text-3xl mb-4">🤖</div>
-                    <h3 class="text-lg font-bold text-white mb-2"><comment-tag id="3">AI Evaluation & SOP Documentation</comment-tag id="3" text="Highlighted AI Evaluation skills alongside SOP documentation to reflect your dual expertise in AI model training and operations." type="suggestion"></h3>
+                    <h3 class="text-lg font-bold text-white mb-2">AI Evaluation & SOP Documentation</h3>
                     <p class="text-slate-400 text-sm mb-4">Evaluating LLM prompt outputs, training datasets, and creating clear internal operating procedures.</p>
                     <ul class="space-y-2 text-sm text-slate-300 mb-4">
                         <li class="flex items-center gap-2"><span class="text-sky-400 font-bold">✓</span> LLM Fact-Checking & Alignment</li>
@@ -167,7 +174,6 @@
                 <p class="text-slate-400 text-sm sm:text-base">An end-to-end data scrubbing pipeline turning 10,000+ corrupt CRM records into an automated Google Sheets executive dashboard.</p>
             </div>
 
-            <!-- Impact Summary Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 <div class="glass-card p-5 rounded-xl border-l-4 border-l-sky-400 text-center">
                     <span class="text-2xl font-extrabold text-sky-400 block mb-1">99.8%</span>
@@ -225,19 +231,18 @@
                         <div class="bg-darkBg p-4 rounded-xl border border-slate-800">
                             <h5 class="text-sky-400 font-bold text-sm mb-1">2. Error Handling & Standardized Formulas</h5>
                             <p class="text-xs text-slate-300 mb-2">Combined <code class="text-emerald-400 font-mono">IFERROR()</code> with <code class="text-emerald-400 font-mono">REGEXREPLACE()</code> to strip non-numeric characters (like currency symbols and text) and convert corrupted text strings into clean decimal floats:</p>
-                            <code class="block font-mono text-xs text-emerald-400 bg-slate-950 p-2.5 rounded-lg border border-slate-900 mb-2">=IFERROR(VALUE(REGEXREPLACE(C2, "[^0-9.]", "")), 0)</code>
+                            <code class="block font-mono text-xs text-emerald-400 bg-slate-950 p-2.5 rounded-lg border border-slate-900 mb-2 overflow-x-auto">=IFERROR(VALUE(REGEXREPLACE(C2, "[^0-9.]", "")), 0)</code>
                             <p class="text-xs text-slate-300">Standardized date fields into standard ISO dates (<code class="text-sky-300 font-mono">YYYY-MM-DD</code>) using <code class="text-emerald-400 font-mono">=DATEVALUE()</code> and explicit column formatting (<strong class="text-white">Format > Number > Custom date and time</strong>) for accurate time-series analysis.</p>
                         </div>
 
                         <div class="bg-darkBg p-4 rounded-xl border border-slate-800">
                             <h5 class="text-sky-400 font-bold text-sm mb-1">3. Dynamic Categorization via XLOOKUP</h5>
                             <p class="text-xs text-slate-300 mb-2">Created a dedicated Metadata Lookup Sheet (<code class="text-sky-300 font-mono">Ref_Table</code>) mapping raw vendor strings and error codes to normalized operational categories (<code class="text-slate-200">Integration Handshake Failure</code>, <code class="text-slate-200">Non-POS Menu Customization</code>, <code class="text-slate-200">Inaccurate Order Refund Dispute</code>). Implemented <code class="text-emerald-400 font-mono">XLOOKUP</code> across master rows for dynamic lookups without index breakage risk:</p>
-                            <code class="block font-mono text-xs text-emerald-400 bg-slate-950 p-2.5 rounded-lg border border-slate-900">=XLOOKUP(Raw_Error_Code, Ref_Table!A:A, Ref_Table!B:B, "Unassigned / Under Review")</code>
+                            <code class="block font-mono text-xs text-emerald-400 bg-slate-950 p-2.5 rounded-lg border border-slate-900 overflow-x-auto">=XLOOKUP(Raw_Error_Code, Ref_Table!A:A, Ref_Table!B:B, "Unassigned / Under Review")</code>
                         </div>
                     </div>
                 </div>
 
-                <!-- Interactive Data Scrubbing Sample Table -->
                 <div class="border-t border-slate-800 pt-6">
                     <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
                         <h4 class="text-lg font-bold text-white">Phase 3: Interactive Data Transformation View</h4>
@@ -338,7 +343,7 @@
                             <button onclick="switchViewer(event, 'cs1-jira-box', this)" class="viewer-tab-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:text-white transition-all">Internal Jira Escalation</button>
                         </div>
 
-                        <div id="cs1-email-box" class="viewer-panel font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line bg-slate-950/60 p-4 rounded-lg border border-slate-900">Subject: Update Regarding Your POS Integration & Technical Escalation
+                        <div id="cs1-email-box" class="viewer-panel font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line text-left bg-slate-950/60 p-4 rounded-lg border border-slate-900 overflow-x-auto">Subject: Update Regarding Your POS Integration & Technical Escalation
 
 Hi [Merchant Name],
 
@@ -353,41 +358,44 @@ Best regards,
 King Philip Edmar Mangi
 Customer Support Professional</div>
 
-                        <div id="cs1-jira-box" class="viewer-panel hidden font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line bg-slate-950/60 p-4 rounded-lg border border-slate-900">======================================================================
-JIRA TICKET ESCALATION
-======================================================================
-Issue Summary: POS Integration Sync Failure / Menu and Order Discrepancies
-Ticket ID: TECH-SUPP-84921
-Priority: High / P2
-Account/Merchant ID: MCH-908234-PH
-Merchant Business Name: [Merchant Store Name]
-Contact Email: merchant@example.com
+                        <div id="cs1-jira-box" class="viewer-panel hidden font-mono text-xs sm:text-sm text-slate-300 text-left bg-slate-950/60 p-4 rounded-lg border border-slate-900 jira-box space-y-3">
+                            <div class="border-b border-slate-700 pb-2 text-sky-400 font-bold uppercase tracking-wider text-[11px]">JIRA TICKET ESCALATION</div>
+                            <div>
+                                <p><span class="text-slate-400">Issue Summary:</span> POS Integration Sync Failure / Menu and Order Discrepancies</p>
+                                <p><span class="text-slate-400">Ticket ID:</span> TECH-SUPP-84921</p>
+                                <p><span class="text-slate-400">Priority:</span> High / P2</p>
+                                <p><span class="text-slate-400">Account/Merchant ID:</span> MCH-908234-PH</p>
+                                <p><span class="text-slate-400">Merchant Business Name:</span> [Merchant Store Name]</p>
+                                <p><span class="text-slate-400">Contact Email:</span> merchant@example.com</p>
+                            </div>
 
-----------------------------------------------------------------------
-1. ISSUE DESCRIPTION:
-----------------------------------------------------------------------
-The merchant reports that their POS system has stopped syncing incoming orders and menu updates automatically. Orders placed via the online platform are not reflecting on their POS terminal, causing operational delays and manual entry overhead.
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">1. ISSUE DESCRIPTION:</span>
+                                <p class="text-slate-300">The merchant reports that their POS system has stopped syncing incoming orders and menu updates automatically. Orders placed via the online platform are not reflecting on their POS terminal, causing operational delays and manual entry overhead.</p>
+                            </div>
 
-----------------------------------------------------------------------
-2. TROUBLESHOOTING STEPS PERFORMED (TIER 1):
-----------------------------------------------------------------------
-- Verified merchant API token and webhook status (token active, webhooks failing with 504 Gateway Timeout).
-- Guided merchant to perform a hard reboot of the POS terminal and network router.
-- Checked store operating hours and status settings on the merchant dashboard (confirmed online and active).
-- Confirmed firmware/app version on the POS device is up to date.
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">2. TROUBLESHOOTING STEPS PERFORMED (TIER 1):</span>
+                                <ul class="list-disc list-inside space-y-1 text-slate-300">
+                                    <li>Verified merchant API token and webhook status (token active, webhooks failing with 504 Gateway Timeout).</li>
+                                    <li>Guided merchant to perform a hard reboot of the POS terminal and network router.</li>
+                                    <li>Checked store operating hours and status settings on the merchant dashboard (confirmed online and active).</li>
+                                    <li>Confirmed firmware/app version on the POS device is up to date.</li>
+                                </ul>
+                            </div>
 
-----------------------------------------------------------------------
-3. TECHNICAL DETAILS / ERROR LOGS:
-----------------------------------------------------------------------
-- Last successful sync timestamp: [Timestamp]
-- Error payload sample: {"error": "POS_TIMEOUT", "retry_count": 3}
-- POS Provider: [e.g., TouchBistro / Toast / POS integration]
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">3. TECHNICAL DETAILS / ERROR LOGS:</span>
+                                <p><span class="text-slate-400">Last successful sync timestamp:</span> [Timestamp]</p>
+                                <p><span class="text-slate-400">Error payload sample:</span> <code class="text-amber-300 bg-slate-900 px-1 py-0.5 rounded">{"error": "POS_TIMEOUT", "retry_count": 3}</code></p>
+                                <p><span class="text-slate-400">POS Provider:</span> [e.g., TouchBistro / Toast / POS integration]</p>
+                            </div>
 
-----------------------------------------------------------------------
-4. REQUESTED ACTION FROM SPECIALIZED TEAM:
-----------------------------------------------------------------------
-Please investigate webhook endpoint connectivity, review backend database sync logs for MCH-908234-PH, and re-establish secure token handshake.
-======================================================================</div>
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">4. REQUESTED ACTION FROM SPECIALIZED TEAM:</span>
+                                <p class="text-slate-300">Please investigate webhook endpoint connectivity, review backend database sync logs for MCH-908234-PH, and re-establish secure token handshake.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -403,7 +411,7 @@ Please investigate webhook endpoint connectivity, review backend database sync l
                         <div class="flex gap-2 mb-4 border-b border-slate-800 pb-3">
                             <button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-400 text-slate-950">Merchant Email Response</button>
                         </div>
-                        <div class="font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line bg-slate-950/60 p-4 rounded-lg border border-slate-900">Subject: Menu Customization Update Complete + Self-Service Guide for Future Updates
+                        <div class="font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line text-left bg-slate-950/60 p-4 rounded-lg border border-slate-900 overflow-x-auto">Subject: Menu Customization Update Complete + Self-Service Guide for Future Updates
 
 Hi [Merchant Name],
 
@@ -439,7 +447,7 @@ Customer Support Professional</div>
                         <div class="flex gap-2 mb-4 border-b border-slate-800 pb-3">
                             <button class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-400 text-slate-950">Merchant Email Response</button>
                         </div>
-                        <div class="font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line bg-slate-950/60 p-4 rounded-lg border border-slate-900">Subject: Resolution Update: Order #[Order ID] Dispute & Refund Processed
+                        <div class="font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line text-left bg-slate-950/60 p-4 rounded-lg border border-slate-900 overflow-x-auto">Subject: Resolution Update: Order #[Order ID] Dispute & Refund Processed
 
 Hi [Merchant Name],
 
@@ -483,7 +491,7 @@ Customer Support Professional</div>
                         </div>
 
                         <!-- Panel 1: Gap & Impact -->
-                        <div id="kb1-gap-box" class="viewer-panel space-y-3 text-sm text-slate-300">
+                        <div id="kb1-gap-box" class="viewer-panel space-y-3 text-sm text-slate-300 text-left">
                             <p><strong class="text-white">Previous Documentation Flaw:</strong> The legacy SOP required support agents to collect the merchant's POS provider name before checking if the store was managed by an active Account Manager. Because unmanaged accounts were ineligible for POS integrations regardless of provider, agents spent valuable minutes gathering irrelevant technical details.</p>
                             <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900 space-y-2">
                                 <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">Negative Impact Identified:</span>
@@ -495,28 +503,37 @@ Customer Support Professional</div>
                             </div>
                         </div>
 
-                        <!-- Panel 2: Jira Ticket -->
-                        <div id="kb1-jira-box" class="viewer-panel hidden font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line bg-slate-950/60 p-4 rounded-lg border border-slate-900">======================================================================
-JIRA CONTENT UPDATE REQUEST (KNOWLEDGE BASE / SOP)
-======================================================================
-Ticket ID: KB-DOC-50912
-Request Type: SOP Restructuring & Agent Workflow Optimization
-Author: King Philip Edmar Mangi (Customer Support Specialist)
-Target KB Article: SOP-POS-LIQUOR-INT-04
+                        <!-- Panel 2: Jira Ticket (Clean Left Alignment) -->
+                        <div id="kb1-jira-box" class="viewer-panel hidden font-mono text-xs sm:text-sm text-slate-300 text-left bg-slate-950/60 p-4 rounded-lg border border-slate-900 jira-box space-y-3">
+                            <div class="border-b border-slate-700 pb-2 text-sky-400 font-bold uppercase tracking-wider text-[11px]">JIRA CONTENT UPDATE REQUEST (KNOWLEDGE BASE / SOP)</div>
+                            <div>
+                                <p><span class="text-slate-400">Ticket ID:</span> KB-DOC-50912</p>
+                                <p><span class="text-slate-400">Request Type:</span> SOP Restructuring & Agent Workflow Optimization</p>
+                                <p><span class="text-slate-400">Author:</span> King Philip Edmar Mangi (Customer Support Specialist)</p>
+                                <p><span class="text-slate-400">Target KB Article:</span> SOP-POS-LIQUOR-INT-04</p>
+                            </div>
 
-1. SUMMARY OF REQUEST:
-Reorder the liquor store integration verification decision tree. Mandate Account Manager status verification as Step 1 before collecting POS provider details.
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">1. SUMMARY OF REQUEST:</span>
+                                <p class="text-slate-300">Reorder the liquor store integration verification decision tree. Mandate Account Manager status verification as Step 1 before collecting POS provider details.</p>
+                            </div>
 
-2. PROPOSED REVISION TO DOC:
-- OLD: Ask POS provider name -> Check Account Manager status -> Decline/Proceed.
-- NEW: Verify Account Manager status first. If unmanaged, immediately decline integration and provide self-service policy notice. Skip POS data collection entirely.
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">2. PROPOSED REVISION TO DOC:</span>
+                                <ul class="space-y-1 text-slate-300">
+                                    <li>• <strong class="text-amber-400">OLD:</strong> Ask POS provider name -> Check Account Manager status -> Decline/Proceed.</li>
+                                    <li>• <strong class="text-emerald-400">NEW:</strong> Verify Account Manager status first. If unmanaged, immediately decline integration and provide self-service policy notice. Skip POS data collection entirely.</li>
+                                </ul>
+                            </div>
 
-3. EXPECTED OPERATIONAL BENEFIT:
-Instant screening of unmanaged accounts, reduction in agent handling time, and cleaner escalation logs.
-======================================================================</div>
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">3. EXPECTED OPERATIONAL BENEFIT:</span>
+                                <p class="text-slate-300">Instant screening of unmanaged accounts, reduction in agent handling time, and cleaner escalation logs.</p>
+                            </div>
+                        </div>
 
                         <!-- Panel 3: Attained Outcomes -->
-                        <div id="kb1-result-box" class="viewer-panel hidden space-y-3 text-sm text-slate-300">
+                        <div id="kb1-result-box" class="viewer-panel hidden space-y-3 text-sm text-slate-300 text-left">
                             <p><strong class="text-white">What Was Attained After Application:</strong></p>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900">
@@ -550,7 +567,7 @@ Instant screening of unmanaged accounts, reduction in agent handling time, and c
                         </div>
 
                         <!-- Panel 1: Gap & Impact -->
-                        <div id="kb2-gap-box" class="viewer-panel space-y-3 text-sm text-slate-300">
+                        <div id="kb2-gap-box" class="viewer-panel space-y-3 text-sm text-slate-300 text-left">
                             <p><strong class="text-white">Previous Documentation Flaw:</strong> Merchants with POS integrations experiencing unaccepted orders while configured for delivery by their own staff were incorrectly instructed to file technical engineering tickets. The root cause was actually an incompatible POS setting rather than a platform bug.</p>
                             <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900 space-y-2">
                                 <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">Negative Impact Identified:</span>
@@ -562,28 +579,37 @@ Instant screening of unmanaged accounts, reduction in agent handling time, and c
                             </div>
                         </div>
 
-                        <!-- Panel 2: Jira Ticket -->
-                        <div id="kb2-jira-box" class="viewer-panel hidden font-mono text-xs sm:text-sm text-slate-300 whitespace-pre-line bg-slate-950/60 p-4 rounded-lg border border-slate-900">======================================================================
-JIRA CONTENT UPDATE REQUEST (KNOWLEDGE BASE / SOP)
-======================================================================
-Ticket ID: KB-DOC-51428
-Request Type: Troubleshooting Routing Correction & KB Expansion
-Author: King Philip Edmar Mangi (Customer Support Specialist)
-Target KB Article: SOP-DELIVERY-POS-CONFIG-12
+                        <!-- Panel 2: Jira Ticket (Clean Left Alignment) -->
+                        <div id="kb2-jira-box" class="viewer-panel hidden font-mono text-xs sm:text-sm text-slate-300 text-left bg-slate-950/60 p-4 rounded-lg border border-slate-900 jira-box space-y-3">
+                            <div class="border-b border-slate-700 pb-2 text-sky-400 font-bold uppercase tracking-wider text-[11px]">JIRA CONTENT UPDATE REQUEST (KNOWLEDGE BASE / SOP)</div>
+                            <div>
+                                <p><span class="text-slate-400">Ticket ID:</span> KB-DOC-51428</p>
+                                <p><span class="text-slate-400">Request Type:</span> Troubleshooting Routing Correction & KB Expansion</p>
+                                <p><span class="text-slate-400">Author:</span> King Philip Edmar Mangi (Customer Support Specialist)</p>
+                                <p><span class="text-slate-400">Target KB Article:</span> SOP-DELIVERY-POS-CONFIG-12</p>
+                            </div>
 
-1. SUMMARY OF REQUEST:
-Update troubleshooting documentation for self-staff delivery mode conflicts. Classify POS delivery incompatibility as a Tier 1 self-service resolution instead of a Tier 2 engineering bug.
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">1. SUMMARY OF REQUEST:</span>
+                                <p class="text-slate-300">Update troubleshooting documentation for self-staff delivery mode conflicts. Classify POS delivery incompatibility as a Tier 1 self-service resolution instead of a Tier 2 engineering bug.</p>
+                            </div>
 
-2. PROPOSED REVISION TO DOC:
-- Add immediate diagnostic check: Review merchant delivery mode settings against POS provider support matrix.
-- Provide agents with templated dual alternatives: (A) Switch to platform delivery, or (B) Update POS provider settings. Prohibit unnecessary Jira ticket creation for known incompatible configurations.
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">2. PROPOSED REVISION TO DOC:</span>
+                                <ul class="space-y-1 text-slate-300">
+                                    <li>• Add immediate diagnostic check: Review merchant delivery mode settings against POS provider support matrix.</li>
+                                    <li>• Provide agents with templated dual alternatives: (A) Switch to platform delivery, or (B) Update POS provider settings. Prohibit unnecessary Jira ticket creation for known incompatible configurations.</li>
+                                </ul>
+                            </div>
 
-3. EXPECTED OPERATIONAL BENEFIT:
-Elimination of false-positive engineering tickets and instant first-contact resolution for merchants.
-======================================================================</div>
+                            <div class="border-t border-slate-800 pt-3">
+                                <span class="text-sky-300 font-bold block mb-1">3. EXPECTED OPERATIONAL BENEFIT:</span>
+                                <p class="text-slate-300">Elimination of false-positive engineering tickets and instant first-contact resolution for merchants.</p>
+                            </div>
+                        </div>
 
                         <!-- Panel 3: Attained Outcomes -->
-                        <div id="kb2-result-box" class="viewer-panel hidden space-y-3 text-sm text-slate-300">
+                        <div id="kb2-result-box" class="viewer-panel hidden space-y-3 text-sm text-slate-300 text-left">
                             <p><strong class="text-white">What Was Attained After Application:</strong></p>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 <div class="bg-slate-950/60 p-4 rounded-lg border border-slate-900">
